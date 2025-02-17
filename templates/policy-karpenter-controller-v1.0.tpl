@@ -30,7 +30,7 @@
                 "StringLike": {
                     "aws:ResourceTag/karpenter.sh/nodepool": "*"
                 }
-            },
+            }
         },
         {
             "Sid": "AllowScopedEC2InstanceActionsWithTags",
@@ -242,7 +242,7 @@
             "Sid": "AllowInstanceProfileReadActions",
             "Effect": "Allow",
             "Action": "iam:GetInstanceProfile",
-            "Resource": "arn:aws:iam::${account_id}:instance-profile/*",
+            "Resource": "arn:aws:iam::${account_id}:instance-profile/*"
         },
         {
             "Sid": "AllowAPIServerEndpointDiscovery",
