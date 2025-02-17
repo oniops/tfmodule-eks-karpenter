@@ -105,6 +105,8 @@ lockdown = "integrity"
     "node.role"               = var.name
     "karpenter.sh/controller" = "true"
   }
+  
+  
 
 }
 ```

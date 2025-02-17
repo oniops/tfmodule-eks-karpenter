@@ -167,6 +167,37 @@ variable "service_account" {
 }
 
 ################################################################################
+# IAM Role for Service Account (IRSA)
+################################################################################
+
+variable "enable_irsa" {
+  description = "Determines whether to enable support for IAM role for service accounts"
+  type        = bool
+  default     = true
+}
+
+variable "irsa_oidc_provider_arn" {
+  type        = string
+  default     = ""
+  description = <<EOF
+OIDC provider arn used in trust policy for IAM role for service accounts.
+
+  locals {
+    oidc_provider_issuer = replace(data.aws_eks_cluster.this.identity[0].oidc[0].issuer, "https://", "")
+    oidc_provider_arn = "arn:aws:iam::111122223333:oidc-provider/${local.oidc_provider_issuer}"
+  }
+
+  irsa_oidc_provider_arn = local.oidc_provider_arn
+EOF
+}
+
+variable "irsa_namespace_service_accounts" {
+  description = "List of `namespace:serviceaccount`pairs to use in trust policy for IAM role for service accounts"
+  type        = list(string)
+  default     = ["karpenter:karpenter"]
+}
+
+################################################################################
 # User Data for Launch Template
 ################################################################################
 
