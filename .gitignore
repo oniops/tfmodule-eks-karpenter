@@ -1,0 +1,22 @@
+/.idea/
+.terraform.lock.hcl
+**/.terraform/
+*.tfstate.lock.info
+
+**/tf-destroy.sh
+**/docker/nginx.conf
+/test-modules/
+/logs/
+/dist/
+/target/
+/*.sh
+**/*.log
+**/*.tfstate.backup
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*-override.tf
+*_override.tf.json
