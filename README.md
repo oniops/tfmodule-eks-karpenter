@@ -47,11 +47,11 @@ locals {
 }
 
 
-module "kpt" {
+module "karpenter" {
   source                     = "git::https://code.bespinglobal.com/scm/op/tfmodule-eks-karpenter?ref=v1.0.0"
   create                     = true
   eks_context                = local.eks_context
-  name                       = var.name
+  name                       = "karpenter"
   ami_type                   = "BOTTLEROCKET_ARM_64"
   ami_id                     = "ami-009fab5adfe7c6e1d"
   enable_bootstrap_user_data = true
@@ -106,8 +106,6 @@ lockdown = "integrity"
     "karpenter.sh/controller" = "true"
   }
   
-  
-
 }
 ```
 

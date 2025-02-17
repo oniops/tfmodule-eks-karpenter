@@ -22,8 +22,11 @@ EOF
 }
 
 variable "ami_id" {
-  description = "The Custom AMI from which to launch the instance."
   type        = string
+  description = <<EOF
+The Custom AMI from which to launch the instance.
+
+EOF
 }
 
 
@@ -178,13 +181,12 @@ variable "enable_irsa" {
 
 variable "irsa_oidc_provider_arn" {
   type        = string
-  default     = ""
   description = <<EOF
 OIDC provider arn used in trust policy for IAM role for service accounts.
 
   locals {
     oidc_provider_issuer = replace(data.aws_eks_cluster.this.identity[0].oidc[0].issuer, "https://", "")
-    oidc_provider_arn = "arn:aws:iam::111122223333:oidc-provider/${local.oidc_provider_issuer}"
+    oidc_provider_arn = "arn:aws:iam::111122223333:oidc-provider/{local.oidc_provider_issuer}"
   }
 
   irsa_oidc_provider_arn = local.oidc_provider_arn

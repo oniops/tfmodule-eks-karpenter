@@ -1,7 +1,7 @@
 locals {
 
   karpenter_controller_policy_name = "${local.project}${title(local.cluster_simple_name)}${title(var.name)}ControllerPolicy"
-  karpenter_controller_policy = templatefile("${path.module}/templates/policy-karpenter-controller-v1.tpl", {
+  karpenter_controller_policy = templatefile("${path.module}/templates/policy-karpenter-controller-v1.0.tpl", {
     region            = local.region
     account_id        = local.account_id
     cluster_name      = local.cluster_name
