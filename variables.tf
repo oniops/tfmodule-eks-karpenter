@@ -28,7 +28,7 @@ The Custom AMI from which to launch the instance. If not supplied, EKS will use 
 In case of BOTTLEROCKET_ARM_64 type, you can find latest AMI_ID from global parameter-store.
 
 Ex)
-  aws ssm get-parameter --name "/aws/service/bottlerocket/aws-k8s-1.31/arm64/latest/image_id
+  aws ssm get-parameter --name "/aws/service/bottlerocket/aws-k8s-1.31/arm64/latest/image_id"
 EOF
 }
 
