@@ -15,6 +15,9 @@ module "node" {
   name                         = var.name
   ami_type                     = var.ami_type
   ami_id                       = var.ami_id
+  desired_size                 = var.desired_size
+  min_size                     = var.min_size
+  max_size                     = var.max_size
   enable_bootstrap_user_data   = var.enable_bootstrap_user_data
   instance_types               = var.instance_types
   block_device_mappings        = var.block_device_mappings

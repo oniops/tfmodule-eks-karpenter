@@ -37,6 +37,24 @@ EOF
 # # EKS Managed Node Group
 # ################################################################################
 
+variable "min_size" {
+  description = "Minimum number of instances/nodes"
+  type        = number
+  default     = 0
+}
+
+variable "max_size" {
+  description = "Maximum number of instances/nodes"
+  type        = number
+  default     = 3
+}
+
+variable "desired_size" {
+  description = "Desired number of instances/nodes"
+  type        = number
+  default     = 1
+}
+
 variable "subnet_ids" {
   description = "Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME`"
   type = list(string)
