@@ -315,4 +315,3 @@ Data Plane 용 노드가 ECR에서 컨테이너 이미지를 가져오거나, Cl
 - eks:eks-cluster-name 태그 값은 karpenter 가 EKS를 식별하는 클러스터 이름
 - kubernetes.io/cluster/{CLUSTER_NAME} 태그 및 값 "owned"은 보안 그룹 태그에 대해선 반드시 하나의 EKS Primary 만 설정 해야 함. EC2, ELB, VPC 서브넷 등 클러스터에서 자동으로 리소스를 식별하고 관리하는데 사용
 
-

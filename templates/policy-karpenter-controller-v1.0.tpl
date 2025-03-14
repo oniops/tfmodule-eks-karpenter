@@ -9,10 +9,10 @@
                 "ec2:CreateFleet"
             ],
             "Resource": [
-				"arn:aws:ec2:ap-northeast-2::snapshot/*",
-				"arn:aws:ec2:ap-northeast-2::image/*",
-				"arn:aws:ec2:ap-northeast-2:*:subnet/*",
-				"arn:aws:ec2:ap-northeast-2:*:security-group/*"
+				"arn:aws:ec2:${region}::snapshot/*",
+				"arn:aws:ec2:${region}::image/*",
+				"arn:aws:ec2:${region}:*:subnet/*",
+				"arn:aws:ec2:${region}:*:security-group/*"
             ]
         },
         {
@@ -22,7 +22,7 @@
                 "ec2:RunInstances",
                 "ec2:CreateFleet"
             ],
-            "Resource": "arn:aws:ec2:ap-northeast-2:*:launch-template/*",
+            "Resource": "arn:aws:ec2:${region}:*:launch-template/*",
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceTag/kubernetes.io/cluster/${cluster_name}": "owned"
