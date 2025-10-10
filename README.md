@@ -5,7 +5,7 @@ EKS 에 최적화된 Karpenter 플러그인을 구성합니다. `tfmodule-aws-ek
 ## Git
 
 ```
-git clone ssh://git@code.bespinglobal.com/op/tfmodule-eks-karpenter.git
+git clone ssh://git@github.com:oniops/tfmodule-eks-karpenter.git
 
 cd tfmodule-eks-karpenter
 ```
@@ -24,8 +24,8 @@ sh deploy.sh apply
 
 ```hcl
 module "ctx" {
-  source  = "git::https://code.bespinglobal.com/scm/op/tfmodule-context.git?ref=v1.2.0"
-  context = var.context
+  source                 = "git::https://github.com/oniops/tfmodule-context.git?ref=v1.3.3"
+  context                = var.context
 }
 
 locals {
@@ -46,9 +46,8 @@ locals {
 
 }
 
-
 module "karpenter" {
-  source                     = "git::https://code.bespinglobal.com/scm/op/tfmodule-eks-karpenter?ref=v1.0.0"
+  source                     = "git::https://github.com/oniops/tfmodule-eks-karpenter?ref=v1.0.0"
   create                     = true
   eks_context                = local.eks_context
   name                       = "karpenter"

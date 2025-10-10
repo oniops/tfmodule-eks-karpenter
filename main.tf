@@ -9,7 +9,7 @@ locals {
 }
 
 module "node" {
-  source                       = "git::https://code.bespinglobal.com/scm/op/tfmodule-aws-eks-node?ref=v1.0.0"
+  source                       = "git::https://github.com/oniops/tfmodule-aws-eks-node?ref=v1.0.0"
   create                       = var.create
   eks_context                  = var.eks_context
   name                         = var.name

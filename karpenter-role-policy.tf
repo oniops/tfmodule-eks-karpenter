@@ -1,6 +1,6 @@
 locals {
-
   karpenter_controller_policy_name = "${local.project}${title(local.cluster_simple_name)}${title(var.name)}ControllerPolicy"
+
   karpenter_controller_policy = templatefile("${path.module}/templates/policy-karpenter-controller-v1.0.tpl", {
     region            = local.region
     account_id        = local.account_id
@@ -8,7 +8,6 @@ locals {
     node_role_arn     = module.node.node_role_arn
     karpenter_sqs_arn = try(aws_sqs_queue.this[0].arn, "")
   })
-
 }
 
 resource "aws_iam_policy" "karpenter" {
@@ -16,6 +15,7 @@ resource "aws_iam_policy" "karpenter" {
   name        = local.karpenter_controller_policy_name
   description = var.karpenter_policy_description
   policy      = local.karpenter_controller_policy
+
   tags = merge(local.tags, {
     Name = local.karpenter_controller_policy_name
   })
