@@ -3,6 +3,12 @@ variable "create" {
   default = true
 }
 
+variable "create_karpenter_role" {
+  type    = bool
+  default = true
+  description = "In case of blue-green-upgrade EKS Cluster version It should be false, Already exists karpenter iam-role"
+}
+
 variable "name" {
   description = "Name of the EKS managed node group"
   type        = string

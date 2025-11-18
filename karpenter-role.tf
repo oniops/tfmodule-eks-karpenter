@@ -1,5 +1,5 @@
 locals {
-  create_karpenter_role = var.create
+  create_karpenter_role = var.create && var.create_karpenter_role
   karpenter_role_name   = "${local.project}${title(local.cluster_simple_name)}${title(var.name)}ControllerRole"
   # karpenter_role_trusted = jsonencode({
   #   "Version" : "2012-10-17",
